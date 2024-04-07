@@ -28,10 +28,13 @@ export default function Home() {
           transform: "translate(-50%, -50%)",
         }}
       >
-        <h1 className={`shiny-silver-text text-8xl`}>
+        <h1 className={`shiny-silver-text text-5xl sm:text-8xl`}>
           Decentralize AI training
         </h1>
-        <p className={` text-xl mt-12 font-light	`} style={{ color: "#c0c0c0" }}>
+        <p
+          className={` text-md sm:text-xl mt-12 font-light`}
+          style={{ color: "#c0c0c0" }}
+        >
           Imagenet is a platform dedicated to decentralizing AI training data.
           Contributors are compensated through smart contracts, guaranteeing
           fair and prompt payment. All of our data is stored in peer to peer
@@ -42,7 +45,6 @@ export default function Home() {
       <div
         style={{
           background: "rgba(17, 13, 17, 1)",
-          height: "100rem",
           color: "white",
         }}
       >

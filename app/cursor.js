@@ -32,7 +32,7 @@ function FlareCursor() {
   }, []); // The empty dependency array ensures that this effect runs only once on mount.
 
   // Calculate the size of the flare based on whether the cursor is over a clickable element.
-  const flareSize = isPointer ? 0 : 30;
+  const flareSize = isPointer ? 0 : 40;
 
   // Adjust the cursor position to create a visual effect when over a clickable element.
   const cursorStyle = isPointer ? { left: "-100px", top: "-100px" } : {};
