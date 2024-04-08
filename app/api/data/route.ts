@@ -1,4 +1,6 @@
 import lighthouse from '@lighthouse-web3/sdk'
+import path from 'path';
+
 
 
 export async function POST() {
@@ -11,7 +13,9 @@ export async function POST() {
   }
 
   try {
-    const uploadResponse = await lighthouse.upload('/public/wow.jpg', apiKey);
+    const filePath = path.join(process.cwd(), 'public', 'wow.jpg');
+
+    const uploadResponse = await lighthouse.upload(filePath, apiKey);
     console.log(uploadResponse);
      return Response.json({ uploadResponse })
   } catch (error) {
