@@ -17,7 +17,8 @@ const UploadButton = () => {
 
   return (
     <button
-      style={{ background: "white", color: "black" }}
+      //style={{ background: "white", color: "black" }}
+      className="upload-button"
       onClick={handleUpload}
     >
       Upload File
