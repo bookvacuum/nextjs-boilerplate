@@ -40,38 +40,43 @@ export default function Home() {
 
           // className="transform rotate-180"
         />
-      </div>
 
-      <div
-        style={{
-          position: "absolute",
-          top: "20rem",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-        }}
-      >
-        <h1 className={`shiny-silver-text text-5xl sm:text-8xl`}>
-          Decentralize AI training
-        </h1>
-        <p
-          className={` text-md sm:text-xl mt-12 font-light`}
-          style={{ color: "#c0c0c0" }}
+        <div
+          style={{
+            position: "absolute",
+            top: "30rem",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            zIndex: "100",
+            paddingTop: "5rem",
+            paddingBottom: "5rem",
+          }}
         >
-          Imagenet is a platform dedicated to decentralizing AI training data.
-          Contributors are compensated through smart contracts, guaranteeing
-          fair and prompt payment. All of our data is stored in peer to peer
-          decentralized storage.
-        </p>
+          <h1 className={`shiny-silver-text text-5xl sm:text-8xl`}>
+            Decentralize AI training
+          </h1>
+          <p
+            className={` text-md sm:text-xl mt-12 font-light`}
+            style={{ color: "#c0c0c0" }}
+          >
+            Imagenet is a platform dedicated to decentralizing AI training data.
+            Contributors are compensated through smart contracts, guaranteeing
+            fair and prompt payment. All of our data is stored in peer to peer
+            decentralized storage.
+          </p>
+
+          <div className="justify-center flex -top-40 w-full">
+            <UploadButton />
+          </div>
+        </div>
       </div>
 
       <div
         style={{
           background: "rgba(17, 13, 17, 1)",
+          position: "relative",
         }}
       >
-        <div className="justify-center flex">
-          <UploadButton />
-        </div>
         <div className="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 py-24 sm:px-6 sm:py-32 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
           <div>
             <h2 className="text-3xl font-bold tracking-tight text-[#c0c0c0] sm:text-4xl">
