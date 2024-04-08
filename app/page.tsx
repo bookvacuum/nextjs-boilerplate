@@ -3,13 +3,20 @@ import React, { useRef, useEffect } from "react";
 import localFont from "next/font/local";
 
 const features = [
-  { name: "Origin", description: "Designed by Good Goods, Inc." },
   {
-    name: "Material",
-    description:
-      "Solid walnut base with rare earth magnets and powder coated steel card cover",
+    name: "Proof of Contribution",
+    description: "We store proof of contribution on chain.",
   },
-  { name: "Dimensions", description: '6.25" x 3.55" x 1.15"' },
+  {
+    name: "Data Storage",
+    description:
+      "The data itself is stored on Lighthouse, powered by Filecoin and IPSJ.",
+  },
+  {
+    name: "Data Validation",
+    description:
+      "To prevent bad actors and ensure data quality, contributors stake a small amount of eth, which will be returned upon data validation",
+  },
   { name: "Finish", description: "Hand sanded and finished with natural oil" },
   { name: "Includes", description: "Wood card tray and 3 refill packs" },
   {
