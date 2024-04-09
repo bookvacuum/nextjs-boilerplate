@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+import CartProvider from "./cartProvider";
+import { store } from "./p2p/store";
 import FlareCursor from "./cursor"; // Don't forget to update this path to your own component file.
 
 // const redaction = localFont({
@@ -21,12 +23,15 @@ export default function RootLayout({
 }>) {
   return (
     <>
-      <html lang="en">
-        <body>
-          {children}
-          <FlareCursor />
-        </body>
-      </html>
+      <CartProvider>
+        <html lang="en">
+          <body>
+            {children}
+
+            <FlareCursor />
+          </body>
+        </html>
+      </CartProvider>
     </>
   );
 }
