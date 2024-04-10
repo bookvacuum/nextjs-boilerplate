@@ -24,25 +24,8 @@ import { useAsyncState } from "./helpers/hooks";
 import dynamic from "next/dynamic";
 
 const { Title } = Typography;
-type MenuItem = Required<MenuProps>["items"][number];
 
-function getItem(
-  label: React.ReactNode,
-  key: React.Key,
-  icon?: React.ReactNode,
-  children?: MenuItem[],
-  type?: "group"
-): MenuItem {
-  return {
-    key,
-    icon,
-    children,
-    label,
-    type,
-  } as MenuItem;
-}
-
-export const PeerComponent: React.FC = () => {
+export const PeerComponent = () => {
   const peer = useAppSelector((state) => state.peer);
   const connection = useAppSelector((state) => state.connection);
   const dispatch = useAppDispatch();
@@ -62,7 +45,7 @@ export const PeerComponent: React.FC = () => {
       : message.warning("Please enter ID");
   };
 
-  const [fileList, setFileList] = useAsyncState([] as UploadFile[]);
+  const [fileList, setFileList] = useAsyncState([]);
   const [sendLoading, setSendLoading] = useAsyncState(false);
 
   const handleUpload = async () => {
@@ -76,7 +59,7 @@ export const PeerComponent: React.FC = () => {
     }
     try {
       await setSendLoading(true);
-      let file = fileList[0] as unknown as File;
+      let file = fileList[0];
       let blob = new Blob([file], { type: file.type });
 
       await PeerConnection.sendConnection(connection.selectedId, {

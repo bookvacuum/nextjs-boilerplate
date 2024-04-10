@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/p2p/peerComponent.jsx", "app/p2p/store/index.js", "app/p2p/store/peer/peerReducer.js", "app/p2p/store/connection/connectionReducer.js"],
   "exclude": ["node_modules"]
 }
