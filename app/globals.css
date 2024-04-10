@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  cursor: none;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -39,4 +43,59 @@
   /* Text Shadow for Depth */
   /* text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4), 0 0 1em rgba(255, 255, 255, 0.3),
     0 0 0.2em rgba(255, 255, 255, 0.3); */
+}
+
+.flare {
+  position: fixed;
+  border: 2px solid rgba(192, 192, 192, 0.3);
+  border-radius: 50%;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 999999 !important ;
+  backdrop-filter: blur(2px);
+  background-color: #0000005e;
+  transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+  cursor: none !important; /* Let's hide the default cursor so it looks way better */
+}
+
+/* We need to remove this custom cursor in mobile devices */
+@media screen and (max-width: 768px) {
+  .flare {
+    width: 0;
+    height: 0;
+    transition: width 0.2s ease-in-out, height 0.2s ease-in-out,
+      opacity 0.2s ease-in-out;
+  }
+}
+.flare.pointer {
+  opacity: 0 !important;
+  transition: width 0.2s ease-in-out, height 0.2s ease-in-out,
+    opacity 0.2s ease-in-out;
+}
+
+.upload-button {
+  margin-top: 3rem;
+  --hover-shadows: 16px 16px 33px #121212,
+  --accent: fuchsia;
+  letter-spacing: 0.1em;
+  border: none;
+  border-radius: 1.1em;
+  background-color: #212121;
+  cursor: pointer;
+  color: white;
+  padding: 1em 2em;
+  transition: box-shadow ease-in-out 0.3s, background-color ease-in-out 0.1s,
+    letter-spacing ease-in-out 0.1s, transform ease-in-out 0.1s;
+  box-shadow: 0px 0px 20px #CFECED;
+}
+
+.upload-button:hover {
+  box-shadow: var(--hover-shadows);
+}
+
+.upload-button:active {
+  box-shadow: var(--hover-shadows), var(--accent) 0px 0px 30px 5px;
+  background-color: var(--accent);
+  transform: scale(0.95);
 }
