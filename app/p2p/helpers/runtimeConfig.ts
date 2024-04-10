@@ -1,4 +1,3 @@
-"use client"
 
 import {EnhancedStore} from "@reduxjs/toolkit";
 
