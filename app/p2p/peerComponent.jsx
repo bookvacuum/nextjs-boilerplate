@@ -25,6 +25,16 @@ import dynamic from "next/dynamic";
 
 const { Title } = Typography;
 
+function getItem(label, key, icon, children, type) {
+  return {
+    key,
+    icon,
+    children,
+    label,
+    type,
+  };
+}
+
 export const PeerComponent = () => {
   const peer = useAppSelector((state) => state.peer);
   const connection = useAppSelector((state) => state.connection);
