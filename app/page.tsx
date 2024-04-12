@@ -1,7 +1,9 @@
+"use client";
 import Image from "next/image";
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import localFont from "next/font/local";
 import UploadButton from "./uploadButton";
+import Web3 from "web3";
 
 const features = [
   {
@@ -27,6 +29,42 @@ const features = [
   },
 ];
 export default function Home() {
+  const [account, setAccount] = useState("");
+  let accounts;
+  let userAddress;
+
+  useEffect(() => {
+    const fetchAccount = async () => {
+      try {
+        window.ethereum.enable().then(async () => {
+          const web3 = new Web3(window.ethereum);
+          accounts = await web3.eth.getAccounts();
+          userAddress = accounts[0];
+          setAccount(userAddress);
+
+          window.ethereum.on("accountsChanged", async (accounts: any[]) => {
+            // handle account change
+            accounts = await web3.eth.getAccounts();
+            userAddress = accounts[0];
+            setAccount(userAddress);
+          });
+
+          window.ethereum.on("disconnect", () => {
+            // handle metamask logout
+            console.log("disconnect");
+            setAccount("");
+          });
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    // call the function
+    fetchAccount()
+      // make sure to catch any error
+      .catch(console.error);
+  }, []);
+
   return (
     <div>
       <div className="video-overlay">
@@ -40,7 +78,21 @@ export default function Home() {
 
           // className="transform rotate-180"
         />
-
+        <div className="p-4 absolute top-10 right-6">
+          {!account ? (
+            <button
+              className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded"
+              onClick={() => window.ethereum.enable()}
+            >
+              Connect to MetaMask
+            </button>
+          ) : null}
+          {account ? (
+            <>
+              <p className="text-gray-700">Your account address: {account}</p>
+            </>
+          ) : null}
+        </div>
         <div
           style={{
             position: "absolute",
