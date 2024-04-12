@@ -33,12 +33,16 @@ export default function Home() {
   let accounts;
   let userAddress;
 
-  useEffect(() => {
-    const fetchAccount = async () => {
-      try {
-        window.ethereum.enable().then(async () => {
+  const fetchAccount = async () => {
+    try {
+      window.ethereum
+        .request({
+          method: "eth_requestAccounts",
+        })
+        .then(async () => {
           const web3 = new Web3(window.ethereum);
           accounts = await web3.eth.getAccounts();
+          console.log(accounts);
           userAddress = accounts[0];
           setAccount(userAddress);
 
@@ -55,10 +59,16 @@ export default function Home() {
             setAccount("");
           });
         });
-      } catch (error) {
-        console.log(error);
-      }
-    };
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleDisconnect = () => {
+    setAccount("");
+  };
+
+  useEffect(() => {
     // call the function
     fetchAccount()
       // make sure to catch any error
@@ -78,11 +88,11 @@ export default function Home() {
 
           // className="transform rotate-180"
         />
-        <div className="p-4 absolute top-10 right-6">
+        <div className="p-4 absolute top-10 right-6 z-50">
           {!account ? (
             <button
               className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded"
-              onClick={() => window.ethereum.enable()}
+              onClick={fetchAccount}
             >
               Connect to MetaMask
             </button>
@@ -90,6 +100,7 @@ export default function Home() {
           {account ? (
             <>
               <p className="text-gray-700">Your account address: {account}</p>
+              <button onClick={handleDisconnect}>disconnect</button>
             </>
           ) : null}
         </div>
