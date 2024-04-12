@@ -64,8 +64,23 @@ export default function Home() {
     }
   };
 
-  const handleDisconnect = () => {
-    setAccount("");
+  const switchAccount = async () => {
+    const accounts = await window.ethereum
+      .request({
+        method: "wallet_requestPermissions",
+        params: [
+          {
+            eth_accounts: {},
+          },
+        ],
+      })
+      .then(() =>
+        window.ethereum.request({
+          method: "eth_requestAccounts",
+        })
+      );
+
+    const account = accounts[0];
   };
 
   // useEffect(() => {
@@ -100,7 +115,7 @@ export default function Home() {
           {account ? (
             <>
               <p className="text-gray-700">Your account address: {account}</p>
-              <button onClick={handleDisconnect}>disconnect</button>
+              <button onClick={switchAccount}>Switch Account</button>
             </>
           ) : null}
         </div>
