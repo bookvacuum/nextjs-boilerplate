@@ -68,12 +68,12 @@ export default function Home() {
     setAccount("");
   };
 
-  useEffect(() => {
-    // call the function
-    fetchAccount()
-      // make sure to catch any error
-      .catch(console.error);
-  }, []);
+  // useEffect(() => {
+  //   // call the function
+  //   fetchAccount()
+  //     // make sure to catch any error
+  //     .catch(console.error);
+  // }, []);
 
   return (
     <div>
