@@ -140,7 +140,7 @@ export const PeerComponent = () => {
                 <div>Waiting for connection ...</div>
               ) : (
                 <div>
-                  Select a connection
+                  Connected with...
                   <Menu
                     selectedKeys={
                       connection.selectedId ? [connection.selectedId] : []

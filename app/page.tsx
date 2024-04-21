@@ -124,8 +124,13 @@ export default function Home() {
           ) : null}
           {account ? (
             <>
-              <p className="text-gray-700">Your account address: {account}</p>
-              <button onClick={switchAccount}>Switch Account</button>
+              <p className="text-[#c0c0c0]">Your wallet: {account}</p>
+              <button
+                onClick={switchAccount}
+                className="text-[#c0c0c0] p-2 rounded-lg bg-black"
+              >
+                Switch Account
+              </button>
             </>
           ) : null}
         </div>
