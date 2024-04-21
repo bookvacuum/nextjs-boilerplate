@@ -4,6 +4,7 @@ import React, { useRef, useEffect, useState } from "react";
 import localFont from "next/font/local";
 import UploadButton from "./uploadButton";
 import Web3 from "web3";
+import { useRouter } from "next/navigation";
 
 const features = [
   {
@@ -29,6 +30,7 @@ const features = [
   },
 ];
 export default function Home() {
+  const router = useRouter();
   const [account, setAccount] = useState("");
   let accounts;
   let userAddress;
@@ -144,7 +146,13 @@ export default function Home() {
           </p>
 
           <div className="justify-center flex -top-40 w-full">
-            <UploadButton />
+            <button
+              onClick={() => router.push("/p2p")}
+              //style={{ background: "white", color: "black" }}
+              className="upload-button"
+            >
+              Start Here
+            </button>
           </div>
         </div>
       </div>
@@ -181,25 +189,25 @@ export default function Home() {
               ))}
             </dl>
           </div>
-          <div className="grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-8">
+          <div className="grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-6">
             <img
-              src="https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-01.jpg"
-              alt="Walnut card tray with white powder coated steel divider and 3 punchout holes."
-              className="rounded-lg bg-gray-100"
-            />
-            <img
-              src="https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-02.jpg"
+              src="mcnugget.jpg"
               alt="Top down view of walnut card tray with embedded magnets and card groove."
               className="rounded-lg bg-gray-100"
             />
             <img
-              src="https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-03.jpg"
+              src="stacked.jpg"
               alt="Side of walnut card tray with card groove and recessed card area."
-              className="rounded-lg bg-gray-100"
+              className="rounded-lg bg-gray-100 h-[284px] w-[284px]"
             />
             <img
-              src="https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-04.jpg"
+              src="stacked2.jpg"
               alt="Walnut card tray filled with cards and card angled in dedicated groove."
+              className="rounded-lg bg-gray-100 h-[284px] w-[284px]"
+            />
+            <img
+              src="wow.jpg"
+              alt="Walnut card tray with white powder coated steel divider and 3 punchout holes."
               className="rounded-lg bg-gray-100"
             />
           </div>

@@ -4,5 +4,11 @@ const PeerComponent = dynamic(() => import("./peerComponent"), {
 });
 
 export default function PageComponent() {
-  return <PeerComponent />;
+  return (
+    <>
+      <div className="bg-[#0f1317] h-[100vh] pt-20">
+        <PeerComponent />;
+      </div>
+    </>
+  );
 }
