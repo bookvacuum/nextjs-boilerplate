@@ -6,7 +6,7 @@ const PeerComponent = dynamic(() => import("./peerComponent"), {
 export default function PageComponent() {
   return (
     <>
-      <div className="bg-[#0f1317] h-[100vh] pt-20">
+      <div className="bg-white h-[100vh] pt-20">
         <PeerComponent />;
       </div>
     </>

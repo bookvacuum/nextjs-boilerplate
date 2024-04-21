@@ -9,7 +9,8 @@ import { useRouter } from "next/navigation";
 const features = [
   {
     name: "Proof of Contribution",
-    description: "We store proof of contribution on chain.",
+    description:
+      "We store proof of contribution which includes your wallet address on chain.",
   },
   {
     name: "Data Storage",
@@ -17,16 +18,23 @@ const features = [
       "The data itself is stored on Lighthouse, powered by Filecoin and IPSJ.",
   },
   {
+    name: "Staking",
+    description:
+      "To prevent bad actors and ensure data quality, contributors stake a small amount of eth",
+  },
+  {
     name: "Data Validation",
     description:
-      "To prevent bad actors and ensure data quality, contributors stake a small amount of eth, which will be returned upon data validation",
+      "A validator reviews your contribution and if they approve, it will be stored in storage",
   },
-  { name: "Finish", description: "Hand sanded and finished with natural oil" },
-  { name: "Includes", description: "Wood card tray and 3 refill packs" },
   {
-    name: "Considerations",
+    name: "Free of Charge",
+    description: "The staked amount will be returned upon successful storage",
+  },
+  {
+    name: "Shared Earnings",
     description:
-      "Made from natural materials. Grain and color vary with each item.",
+      "Profits from the dataset will be dispersed to the wallet address on record",
   },
 ];
 export default function Home() {
@@ -139,13 +147,13 @@ export default function Home() {
             className={` text-md sm:text-xl mt-12 font-light`}
             style={{ color: "#c0c0c0" }}
           >
-            Imagenet is a platform dedicated to decentralizing AI training data.
+            ClosedAI is a platform dedicated to decentralizing AI training data.
             Contributors are compensated through smart contracts, guaranteeing
             fair and prompt payment. All of our data is stored in peer to peer
             decentralized storage.
           </p>
 
-          <div className="justify-center flex -top-40 w-full">
+          <div className="justify-center flex mt-8 w-full">
             <button
               onClick={() => router.push("/p2p")}
               //style={{ background: "white", color: "black" }}
@@ -169,10 +177,8 @@ export default function Home() {
               Technical Specifications
             </h2>
             <p className="mt-4 text-gray-400">
-              Imagenet is a platform dedicated to decentralizing AI training
-              data. Contributors are compensated through smart contracts,
-              guaranteeing fair and prompt payment. All of our data is stored in
-              peer to peer decentralized storage.
+              We use peer to peer transfer and IPFS powered decentralized
+              storage to avoid storing images in a centralized storage
             </p>
 
             <dl className="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
