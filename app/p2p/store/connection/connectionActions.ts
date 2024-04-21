@@ -35,9 +35,10 @@ export const connectPeer: (id: string) => (dispatch: Dispatch) => Promise<void>
         })
         PeerConnection.onConnectionReceiveData(id, (file) => {
             message.info("Receiving file " + file.fileName + " from " + id)
+                        // Redirect to another page after initiating download
             if (file.dataType === DataType.FILE) {
                 download(file.file || '', file.fileName || "fileName", file.fileType)
-                
+               
             }
         })
         dispatch(addConnectionList(id))
