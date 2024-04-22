@@ -10,6 +10,7 @@ declare global {
     interface Window {
         runtimeConfigs: IRuntimeConfig
         store: EnhancedStore
+        ethereum: any;
     }
 }
 

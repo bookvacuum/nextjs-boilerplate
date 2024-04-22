@@ -92,7 +92,7 @@ export const PeerComponent = () => {
       <Col xs={24} sm={24} md={20} lg={16} xl={12}>
         <Card>
           <Title level={2} style={{ textAlign: "center" }}>
-            P2P File Transfer
+            Send Image to Validator
           </Title>
           <Card hidden={peer.started}>
             <Button onClick={handleStartSession} loading={peer.loading}>
@@ -140,7 +140,7 @@ export const PeerComponent = () => {
                 <div>Waiting for connection ...</div>
               ) : (
                 <div>
-                  Select a connection
+                  Connected with...
                   <Menu
                     selectedKeys={
                       connection.selectedId ? [connection.selectedId] : []
